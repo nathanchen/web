@@ -11,5 +11,5 @@ package info.chenqin.web.util.url;
  */
 public final class FtlPath
 {
-    public final static String TEST_FTL_PATH = "test";
+    public final static String TEST_FTL_PATH = "console";
 }

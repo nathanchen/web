@@ -54,4 +54,8 @@
     </bean>
 
     <mvc:annotation-driven/>
+
+    <mvc:interceptors>
+        <bean id="oauthInterceptor" class="info.chenqin.web.util.interceptor.WebInterceptor"/>
+    </mvc:interceptors>
 </beans>

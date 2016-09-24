@@ -9,6 +9,7 @@ package info.chenqin.web.util.url;
  * <p/>
  * Description:
  */
-public class WebUrl
+public final class WebUrl
 {
+
 }

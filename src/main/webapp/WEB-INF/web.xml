@@ -10,7 +10,7 @@
     <!-- 设计路径变量值 -->
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>hao24wap.root</param-value>
+        <param-value>info.web</param-value>
     </context-param>
 
     <!-- Spring字符集过滤器 -->

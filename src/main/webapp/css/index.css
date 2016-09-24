@@ -1,0 +1,13 @@
+#nav-ul {
+    line-height: 21px;
+}
+.list-group-item>.badge {
+    margin-left: 20px;
+    float: inherit;
+}
+.bs-docs-section {
+    margin-top: 20px;
+}
+#weather-table {
+    font-size: 15px;
+}
