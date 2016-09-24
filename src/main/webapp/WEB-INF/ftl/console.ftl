@@ -39,7 +39,7 @@
                 <div class="bs-component">
                     <div class="list-group">
                         <#list model.newsList as news>
-                            <a class="list-group-item" href="${news.url}" title="${news.title}">
+                            <a class="list-group-item" href="${news.url}" title="${news.title}" target="_blank">
                                 ${news.title}
                             </a>
                         </#list>
