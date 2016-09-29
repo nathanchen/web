@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 /**
  * User: nathanchen
  * <p>
- * Date: 23/9/16
+ * Date: 28/9/16
  * <p>
- * Time: 11:44 AM
+ * Time: 8:38 PM
  * <p>
  * Description:
  */
 @Service
-public class CurrencyExchangeCrawlerService extends BaseService
+public class StockMarketCrawlerService extends BaseService
 {
-    public BloombergFinancialDataInfoApiResponse getCurrencyExchangeRate(BaseAPIRequestModel baseAPIRequestModel)
+    public BloombergFinancialDataInfoApiResponse getStockMarkerData(BaseAPIRequestModel baseAPIRequestModel)
     {
-        return (BloombergFinancialDataInfoApiResponse)getForObject(baseAPIRequestModel, APIURL.API_CURRENCY_EXCHANGE_RATE_URL, BloombergFinancialDataInfoApiResponse.class);
+        return (BloombergFinancialDataInfoApiResponse)getForObject(baseAPIRequestModel, APIURL.API_STOCK_PRICE_URL, BloombergFinancialDataInfoApiResponse.class);
     }
 }

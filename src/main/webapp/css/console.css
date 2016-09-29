@@ -11,3 +11,12 @@
 #weather-table {
     font-size: 15px;
 }
+.financial-panel {
+    margin-bottom: 1px;
+}
+.financial-key {
+    font-weight: bold;
+}
+.financial-value {
+    float: right;
+}

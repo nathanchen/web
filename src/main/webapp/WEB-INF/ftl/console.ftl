@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nathan CHEN</title>
     <link href="${__static_server__}/css/thirdparty/bootstrap.css" rel="stylesheet"/>
-    <link href="${__static_server__}/css/index.css" rel="stylesheet"/>
+    <link href="${__static_server__}/css/console.css" rel="stylesheet"/>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -67,11 +67,39 @@
                     <h3>汇率</h3>
                 </div>
                 <div class="bs-component">
-                    <div class="panel <#if model.currencyX.changeValue lt 0>panel-success<#else>panel-danger</#if>">
+                    <#list model.currencyX as bean>
+                        <div class="panel <#if bean.changeValue?number lt 0>panel-success<#else>panel-danger</#if> financial-panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span class="financial-key">
+                                        ${bean.name}
+                                    </span>
+                                    <span class="financial-value">
+                                        ${bean.currentValue}
+                                    </span>
+                                </h3>
+                            </div>
+                        </div>
+                    </#list>
+                </div>
+                <div class="page-header">
+                    <h3>股市</h3>
+                </div>
+                <div class="bs-component">
+                <#list model.stocks as bean>
+                    <div class="panel <#if bean.changeValue?number lt 0>panel-success<#else>panel-danger</#if> financial-panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">${model.currencyX.currencyExchangeRate}</h3>
+                            <h3 class="panel-title">
+                                <span class="financial-key">
+                                    ${bean.name}
+                                </span>
+                                <span class="financial-value">
+                                    ${bean.currentValue}
+                                </span>
+                            </h3>
                         </div>
                     </div>
+                </#list>
                 </div>
             </div>
         </div>

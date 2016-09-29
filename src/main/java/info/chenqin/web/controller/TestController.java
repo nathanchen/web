@@ -1,12 +1,13 @@
 package info.chenqin.web.controller;
 
 import info.chenqin.apirequest.BaseAPIRequestModel;
-import info.chenqin.apiresponse.crawler.CurrencyExchangeRateCrawlerApiResponse;
+import info.chenqin.apiresponse.crawler.BloombergFinancialDataInfoApiResponse;
 import info.chenqin.apiresponse.crawler.OSChinaIndexPageCrawlerApiResponse;
 import info.chenqin.apiresponse.crawler.YahooWeatherAPIResponse;
 import info.chenqin.common.ApiVersionEnum;
 import info.chenqin.web.service.crawler.CurrencyExchangeCrawlerService;
 import info.chenqin.web.service.crawler.OSChinaIndexPageCrawlerService;
+import info.chenqin.web.service.crawler.StockMarketCrawlerService;
 import info.chenqin.web.service.crawler.WeatherCrawlerService;
 import info.chenqin.web.util.url.FtlPath;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +46,8 @@ public class TestController extends BaseController
     @Autowired
     CurrencyExchangeCrawlerService currencyExchangeCrawlerService;
 
+    @Autowired
+    StockMarketCrawlerService stockMarketCrawlerService;
 
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public String consolePage(@ModelAttribute("model") ModelMap model)
@@ -55,13 +58,15 @@ public class TestController extends BaseController
 
         Future<OSChinaIndexPageCrawlerApiResponse> osChinaIndexPageCrawlerApiResponseFuture = getOSChinaIndexPageNews(baseAPIRequestModel);
         Future<YahooWeatherAPIResponse> yahooWeatherAPIResponseFuture = getWeather(baseAPIRequestModel);
-        Future<CurrencyExchangeRateCrawlerApiResponse> currencyExchangeRateCrawlerApiResponseFuture = getCurrency(baseAPIRequestModel);
+        Future<BloombergFinancialDataInfoApiResponse> currencyExchangeRateCrawlerApiResponseFuture = getCurrency(baseAPIRequestModel);
+        Future<BloombergFinancialDataInfoApiResponse> stockMarketCrawlerApiResponseFuture = getStockMarket(baseAPIRequestModel);
 
         try
         {
             OSChinaIndexPageCrawlerApiResponse osChinaIndexPageCrawlerApiResponse = osChinaIndexPageCrawlerApiResponseFuture.get();
             YahooWeatherAPIResponse yahooWeatherAPIResponse = yahooWeatherAPIResponseFuture.get();
-            CurrencyExchangeRateCrawlerApiResponse currencyExchangeRateCrawlerApiResponse = currencyExchangeRateCrawlerApiResponseFuture.get();
+            BloombergFinancialDataInfoApiResponse currencyExchangeRateCrawlerApiResponse = currencyExchangeRateCrawlerApiResponseFuture.get();
+            BloombergFinancialDataInfoApiResponse stockMarketCrawlerApiResponse = stockMarketCrawlerApiResponseFuture.get();
 
             if (osChinaIndexPageCrawlerApiResponse.getCode() == 0)
             {
@@ -73,7 +78,11 @@ public class TestController extends BaseController
             }
             if (currencyExchangeRateCrawlerApiResponse.getCode() == 0)
             {
-                model.put("currencyX", currencyExchangeRateCrawlerApiResponse.getCurrencyExchangeRateInfoModel());
+                model.put("currencyX", currencyExchangeRateCrawlerApiResponse.getBloombergFinancialDataInfoModelList());
+            }
+            if (stockMarketCrawlerApiResponse.getCode() == 0)
+            {
+                model.put("stocks", stockMarketCrawlerApiResponse.getBloombergFinancialDataInfoModelList());
             }
         }
         catch (InterruptedException | ExecutionException e)
@@ -84,18 +93,7 @@ public class TestController extends BaseController
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd E");
         model.put("date", simpleDateFormat.format(new Date()));
 
-        return FtlPath.TEST_FTL_PATH;
-    }
-
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public String test()
-    {
-        BaseAPIRequestModel baseAPIRequestModel = new BaseAPIRequestModel();
-        baseAPIRequestModel.setApiVersion(ApiVersionEnum.V1.getCode());
-        baseAPIRequestModel.setTimestamp(System.currentTimeMillis());
-        OSChinaIndexPageCrawlerApiResponse osChinaIndexPageCrawlerApiResponse = osChinaIndexPageCrawlerService.getOSChinaIndexPage(baseAPIRequestModel);
-        log.info("{}", osChinaIndexPageCrawlerApiResponse);
-        return FtlPath.TEST_FTL_PATH;
+        return FtlPath.CONSOLE_FTL_NAME;
     }
 
     private Future<YahooWeatherAPIResponse> getWeather(final BaseAPIRequestModel baseAPIRequestModel)
@@ -108,12 +106,22 @@ public class TestController extends BaseController
         });
     }
 
-    private Future<CurrencyExchangeRateCrawlerApiResponse> getCurrency(final BaseAPIRequestModel baseAPIRequestModel)
+    private Future<BloombergFinancialDataInfoApiResponse> getCurrency(final BaseAPIRequestModel baseAPIRequestModel)
     {
-        return threadPoolExecutor.submit(new Callable<CurrencyExchangeRateCrawlerApiResponse>() {
-            public CurrencyExchangeRateCrawlerApiResponse call() throws Exception
+        return threadPoolExecutor.submit(new Callable<BloombergFinancialDataInfoApiResponse>() {
+            public BloombergFinancialDataInfoApiResponse call() throws Exception
             {
                 return currencyExchangeCrawlerService.getCurrencyExchangeRate(baseAPIRequestModel);
+            }
+        });
+    }
+
+    private Future<BloombergFinancialDataInfoApiResponse> getStockMarket(final BaseAPIRequestModel baseAPIRequestModel)
+    {
+        return threadPoolExecutor.submit(new Callable<BloombergFinancialDataInfoApiResponse>() {
+            public BloombergFinancialDataInfoApiResponse call() throws Exception
+            {
+                return stockMarketCrawlerService.getStockMarkerData(baseAPIRequestModel);
             }
         });
     }
