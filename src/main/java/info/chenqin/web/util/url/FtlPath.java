@@ -12,4 +12,6 @@ package info.chenqin.web.util.url;
 public final class FtlPath
 {
     public final static String CONSOLE_FTL_NAME = "console";
+
+    public final static String STATUS_FTL_NAME = "status";
 }

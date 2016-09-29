@@ -11,5 +11,7 @@ package info.chenqin.web.util.url;
  */
 public final class WebUrl
 {
+    public static final String CONSOLE_PAGE_URL = "/console.html";
 
+    public static final String STATUS_PAGE_URL = "/status.html";
 }

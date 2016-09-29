@@ -10,6 +10,7 @@ import info.chenqin.web.service.crawler.OSChinaIndexPageCrawlerService;
 import info.chenqin.web.service.crawler.StockMarketCrawlerService;
 import info.chenqin.web.service.crawler.WeatherCrawlerService;
 import info.chenqin.web.util.url.FtlPath;
+import info.chenqin.web.util.url.WebUrl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ import java.util.concurrent.Future;
  */
 @Slf4j
 @Controller
-public class TestController extends BaseController
+public class ConsoleController extends BaseController
 {
     @Autowired
     OSChinaIndexPageCrawlerService osChinaIndexPageCrawlerService;
@@ -49,7 +50,7 @@ public class TestController extends BaseController
     @Autowired
     StockMarketCrawlerService stockMarketCrawlerService;
 
-    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    @RequestMapping(value = WebUrl.CONSOLE_PAGE_URL, method = RequestMethod.GET)
     public String consolePage(@ModelAttribute("model") ModelMap model)
     {
         BaseAPIRequestModel baseAPIRequestModel = new BaseAPIRequestModel();
