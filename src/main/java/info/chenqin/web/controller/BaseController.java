@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
  * <p>
  * Description:
  */
-class BaseController
+public class BaseController
 {
-    ExecutorService threadPoolExecutor = Executors.newCachedThreadPool();
+    protected ExecutorService threadPoolExecutor = Executors.newCachedThreadPool();
 }

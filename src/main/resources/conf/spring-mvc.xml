@@ -14,6 +14,12 @@
     <!-- 扫描controller（controller层注入） -->
     <context:component-scan base-package="info.chenqin"/>
 
+    <mvc:annotation-driven>
+        <mvc:return-value-handlers>
+            <bean class="info.chenqin.web.util.bigpipe.handler.BigpipeTaskReturnValueHandler"/>
+        </mvc:return-value-handlers>
+    </mvc:annotation-driven>
+
     <aop:aspectj-autoproxy/>
 
     <!-- 避免IE在ajax请求时，返回json出现下载 -->
@@ -53,7 +59,15 @@
         <property name="order" value="0"/>
     </bean>
 
-    <mvc:annotation-driven/>
+    <bean class="info.chenqin.web.util.bigpipe.view.BigPipeFreeMarkerPageletViewResolver">
+        <property name="contentType" value="text/html; charset=utf-8" />
+        <property name="prefix" value="/bigpipe/"/>
+        <property name="suffix" value=".ftl"/>
+        <property name="encoding" value="utf-8"/>
+        <property name="order" value="1"/>
+    </bean>
+
+    <bean class="info.chenqin.web.util.bigpipe.DefaultPageletFinder" />
 
     <mvc:interceptors>
         <bean id="oauthInterceptor" class="info.chenqin.web.util.interceptor.WebInterceptor"/>
