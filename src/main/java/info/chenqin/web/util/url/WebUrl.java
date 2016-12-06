@@ -11,7 +11,20 @@ package info.chenqin.web.util.url;
  */
 public final class WebUrl
 {
+    public static final String DEFAULT_PAGE_URL = "/";
+    public static final String INDEX_PAGE_URL = "/index.html";
+
     public static final String CONSOLE_PAGE_URL = "/console.html";
+
+    /**
+     * 项目首页
+     */
+    public static final String PROJECT_HOME_PAGE_URL = "/project.html";
+
+    /**
+     * 2016年项目介绍页
+     */
+    public static final String PROJECT2016_PAGE_URL = "/project/2016.html";
 
     public static final String CONSOLE_FRAME_PAGELET_URL = "console/frame";
     public static final String CONSOLE_OSCHINA_PAGELET_URL = "console/oschina";
@@ -20,4 +33,10 @@ public final class WebUrl
     public static final String CONSOLE_STOCK_PAGELET_URL = "console/stock";
 
     public static final String STATUS_PAGE_URL = "/status.html";
+
+
+    /**
+     * 测试用
+     */
+    public static final String TEST_PAGE_URL= "/test.html";
 }

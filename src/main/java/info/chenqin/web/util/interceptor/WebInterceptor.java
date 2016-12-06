@@ -1,5 +1,6 @@
 package info.chenqin.web.util.interceptor;
 
+import info.chenqin.util.network.WebCookiesUtil;
 import info.chenqin.web.util.WebProjectPropertiesFileHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,8 +8,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Random;
 
 /**
@@ -23,8 +22,6 @@ import java.util.Random;
 @Slf4j
 public class WebInterceptor extends HandlerInterceptorAdapter
 {
-    private static Calendar calendar = new GregorianCalendar();
-
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception
     {
@@ -40,7 +37,6 @@ public class WebInterceptor extends HandlerInterceptorAdapter
                 request.setAttribute("__version__", String.valueOf(random.nextInt(999999)));
             }
         }
-        int year = calendar.get(Calendar.YEAR);
-        request.setAttribute("__year__", year);
+        request.setAttribute("local_storage_version", WebCookiesUtil.getLocalStorageVersion());
     }
 }

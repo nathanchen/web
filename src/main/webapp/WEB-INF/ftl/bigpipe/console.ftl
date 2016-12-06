@@ -68,6 +68,9 @@
 
 <script src="${__static_server__}/js/thirdparty/jquery-1.11.2.min.js"></script>
 <script src="${__static_server__}/js/thirdparty/bootstrap.js"></script>
+<script src="${__static_server__}/js/thirdparty/sockjs-0.3.4.min.js"></script>
+<script src="${__static_server__}/js/thirdparty/stomp.js"></script>
 <script src="${__static_server__}/js/page/console.js"></script>
+<script src="${__static_server__}/js/page/app.js"></script>
 </body>
 </html>

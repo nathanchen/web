@@ -1,0 +1,165 @@
+.white {
+    color: #ffffff;
+}
+
+.section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.lighter {
+    font-weight: lighter;
+}
+
+#letter {
+    margin-top: 60px;
+}
+
+#service {
+    margin-top: 60px;
+}
+
+#environment {
+    background: rgba(39, 144, 176, 0.96);
+}
+
+#contact {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #272727;
+}
+
+.contact-icon-phone {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #3ab0e2;
+    color: #272727
+}
+
+.contact-icon-weibo {
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.contact-icon-email {
+    font-size: 30px;
+    color: #34d293;
+    margin-bottom: 10px;
+}
+
+.background-black {
+    width: 100%;
+    background-color: #000000;
+}
+
+.current:before {
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    content: "";
+    width: 45%;
+    height: 2px;
+    background: #ff705e;
+    bottom: 10px;
+    left: 28%;
+}
+
+#service-row {
+    margin-top: 50px;
+}
+
+div.thumbnail.no-boarder {
+    border: none;
+}
+
+div .caption {
+    text-align: center;
+}
+
+.thumbnail-img-circle {
+    width: 145px;
+    height: 145px;
+    margin: auto;
+    border-radius: 50%;
+    border: 10px solid #ececec;
+    position: relative;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.thumbnail-img {
+    height: 63px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+}
+
+ul.no-bullet > li {
+    list-style-type: none;
+}
+
+small > p.limited {
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+h5.media-heading {
+    font-weight: bold;
+}
+
+.hospital-thumbnail {
+    width: 80px;
+    height: 80px;
+}
+
+#project-content {
+    margin-top: 90px;
+}
+
+.slide, table, th {
+    margin-top: 40px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.slide > p, .slide > h4, .slide > h5 {
+    text-align: left;
+}
+
+.slide > img {
+    height: 384px;
+    width: 512px;
+}
+
+footer {
+    height: 100px;
+    text-align: right;
+}
+
+footer > p {
+}
+
+footer > hr {
+    border-top: 4px solid #ecf0f1
+}
+div.desc{
+    position: absolute;
+    bottom: 0;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.5;
+    left:0;   /** new  **/
+    right:0;  /** new  **/
+    filter: alpha(opacity=50);
+}

@@ -75,5 +75,6 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>*.html</url-pattern>
         <url-pattern>*.do</url-pattern>
+        <url-pattern>/gs-guide-websocket/*</url-pattern>
     </servlet-mapping>
 </web-app>

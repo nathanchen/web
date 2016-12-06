@@ -23,4 +23,10 @@ public class SystemController
     {
         return FtlPath.STATUS_FTL_NAME;
     }
+
+    @RequestMapping(value = WebUrl.TEST_PAGE_URL, method = RequestMethod.GET)
+    public String getTestPage()
+    {
+        return FtlPath.TEST_FTL_NAME;
+    }
 }

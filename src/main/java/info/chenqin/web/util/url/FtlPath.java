@@ -14,4 +14,8 @@ public final class FtlPath
     public final static String CONSOLE_FTL_NAME = "console";
 
     public final static String STATUS_FTL_NAME = "status";
+
+
+
+    public final static String TEST_FTL_NAME = "test";
 }
