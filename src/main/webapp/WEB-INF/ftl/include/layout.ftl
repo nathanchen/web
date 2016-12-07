@@ -10,5 +10,5 @@
         <#nested>
         </div>
     </div>
-    <@footer.footer scripts=scripts></@footer.footer>
+    <@footer.footer scripts=scripts + ["page/project.js"]></@footer.footer>
 </#macro>
