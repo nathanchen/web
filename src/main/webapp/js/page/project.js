@@ -3,7 +3,8 @@ function list_item_highlight() {
     $("div.list-group a").each(function(){
         var spath = $(this).attr("href");
         if(typeof(spath) == "string" && spath.indexOf(path) >= 0){
-                $(this).addClass("active");
+            $(this).addClass("active");
+            return false;
         }
     });
 }

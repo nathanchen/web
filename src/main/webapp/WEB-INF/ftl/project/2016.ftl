@@ -15,7 +15,7 @@
             <h4>项目最终架构</h4>
             <p>在制定商城的整体架构时，我的原则是不画蛇添足，不过分设计，不为了炫技而做不必要的系统；但与此同时，要让项目成员能学习到新东西，能让今后的开发流程变得更有趣。</p>
             <p>因此，在设计最后框架的过程中，我参考了<a href="http://www.infoq.com/cn/articles/suning-product-details-system-architecture-design" rel="nofollow">苏宁</a>、<a href="http://jinnianshilongnian.iteye.com" rel="nofollow">京东</a>两家的框架，融合了`<a href="https://wanqu.co/b/7/2015-05-24-behind-the-scenes.html" rel="nofollow">湾区日报</a>`的系统管理和代码上线流程，参考了<a href="http://tech.meituan.com/improving-git-flow_squashing-commits.html" rel="nofollow">美团点评</a> 的Git Flow，最后整理出了这套框架和流程。</p>
-            <img src="${__static_server__}/image/pages/projects/2016/all-arch.jpeg">
+            <img src="${__static_server__}/image/pages/projects/2016/all-arch.jpeg" alt="项目最终架构">
         </div>
         <div class="slide">
             <h4>项目模块组成及分工</h4>
@@ -45,11 +45,11 @@
         <div class="slide">
             <h4>项目模块分解</h4>
             <p>- 项目管理模块</p>
-            <img src="${__static_server__}/image/pages/projects/2016/proj-manage.jpeg">
-            <img src="${__static_server__}/image/pages/projects/2016/proj-go-online.jpeg">
+            <img src="${__static_server__}/image/pages/projects/2016/proj-manage.jpeg" alt="项目管理模块">
+            <img src="${__static_server__}/image/pages/projects/2016/proj-go-online.jpeg" alt="项目上线流程">
             <hr/>
             <p>- 项目页面缓存模块</p>
-            <img src="${__static_server__}/image/pages/projects/2016/proj-backbone.jpeg">
+            <img src="${__static_server__}/image/pages/projects/2016/proj-backbone.jpeg" alt="项目页面缓存模块">
             <p>电商网站上的很多页面，所有用户在一定的时间段看到的内容都是一样的，所以没有必要每次用户请求的时候都动态生成一遍这样的页面。</p>
 
             <p>出于简化开发难度的关系，我们最初的做法是在每一台Tomcat服务器层上加一个EhCache缓存，利用其SimplePageCachingFilter缓存html页面。但是这种方式带来了分布式服务器缓存不一致和资源的浪费，在解决这两个问题的时候，我们发现EhCache的方式增大了维护的成本，所以我们决定不再使用这个方案。
@@ -61,8 +61,8 @@
             <p>再接下来，我们对缓存在Redis中的缓存颗粒度进行了优化，不再以页面级别进行缓存，而是缓存页面中的细分模块。</p>
             <hr/>
             <p>- 项目日志及监控模块</p>
-            <img src="${__static_server__}/image/pages/projects/2016/proj-admin.jpeg">
-            <img src="${__static_server__}/image/pages/projects/2016/proj-elk.jpeg">
+            <img src="${__static_server__}/image/pages/projects/2016/proj-admin.jpeg" alt="项目日志管理模块">
+            <img src="${__static_server__}/image/pages/projects/2016/proj-elk.jpeg" alt="项目日志监控模块">
         </div>
         <div class="slide">
             <h4>总结</h4>
