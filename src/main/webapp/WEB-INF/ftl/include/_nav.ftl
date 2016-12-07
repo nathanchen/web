@@ -5,7 +5,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
-                <li>
+                <li class="current">
                     <a href="projects.html">项目</a>
                 </li>
             </ul>

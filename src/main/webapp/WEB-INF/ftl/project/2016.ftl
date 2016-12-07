@@ -52,13 +52,13 @@
             <img src="${__static_server__}/image/pages/projects/2016/proj-backbone.jpeg">
             <p>电商网站上的很多页面，所有用户在一定的时间段看到的内容都是一样的，所以没有必要每次用户请求的时候都动态生成一遍这样的页面。</p>
 
-            <p>出于简化开发难度的关系，我们最初的做法是在每一台<code>Tomcat</code>服务器层上加一个<code>EhCache</code>缓存，利用其<code>SimplePageCachingFilter</code>缓存html页面。但是这种方式带来了分布式服务器缓存不一致和资源的浪费，在解决这两个问题的时候，我们发现<code>EhCache</code>的方式增大了维护的成本，所以我们决定不再使用这个方案。
+            <p>出于简化开发难度的关系，我们最初的做法是在每一台Tomcat服务器层上加一个EhCache缓存，利用其SimplePageCachingFilter缓存html页面。但是这种方式带来了分布式服务器缓存不一致和资源的浪费，在解决这两个问题的时候，我们发现EhCache的方式增大了维护的成本，所以我们决定不再使用这个方案。
             </p>
 
-            <p>然后我们就采用了<code>Nginx</code>上加<code>OpenResty</code>的解决方法，网站上的大多页面会被缓存到<code>Redis</code>中，每次用户请求到达<code>Nginx</code>上的时候，就直接找<code>Redis</code>缓存中的页面，配合着我们的<code>Backbone</code>系统，<code>Redis</code>的数据会定时的进行更新。
+            <p>然后我们就采用了Nginx上加OpenResty的解决方法，网站上的大多页面会被缓存到Redis中，每次用户请求到达Nginx上的时候，就直接找Redis缓存中的页面，配合着我们的Backbone系统，Redis的数据会定时的进行更新。
             </p>
 
-            <p>再接下来，我们对缓存在<code>Redis</code>中的缓存颗粒度进行了优化，不再以页面级别进行缓存，而是缓存页面中的细分模块。</p>
+            <p>再接下来，我们对缓存在Redis中的缓存颗粒度进行了优化，不再以页面级别进行缓存，而是缓存页面中的细分模块。</p>
             <hr/>
             <p>- 项目日志及监控模块</p>
             <img src="${__static_server__}/image/pages/projects/2016/proj-admin.jpeg">

@@ -22,9 +22,12 @@ public final class WebUrl
     public static final String PROJECT_HOME_PAGE_URL = "/project.html";
 
     /**
-     * 2016年项目介绍页
+     * 各年项目介绍页
      */
     public static final String PROJECT2016_PAGE_URL = "/project/2016.html";
+    public static final String PROJECT2015_PAGE_URL = "/project/2015.html";
+    public static final String PROJECT2014_PAGE_URL = "/project/2014.html";
+    public static final String PROJECT2013_PAGE_URL = "/project/2013.html";
 
     public static final String CONSOLE_FRAME_PAGELET_URL = "console/frame";
     public static final String CONSOLE_OSCHINA_PAGELET_URL = "console/oschina";

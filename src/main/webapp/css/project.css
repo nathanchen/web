@@ -142,6 +142,11 @@ h5.media-heading {
     width: 512px;
 }
 
+.slide.screenshot > img {
+    height: 552px;
+    width: 310px;
+}
+
 footer {
     height: 100px;
     text-align: right;
